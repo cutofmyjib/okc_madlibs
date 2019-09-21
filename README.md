@@ -1,26 +1,6 @@
-# OkCupid Take-Home Exercise
-
-Welcome to the OkCupid take-home exercise! This will roughly model the type of
-projects you'd work on at OkCupid.
-
-This repository contains the structure of a React/Redux application, as well as
-a webpack setup to compile the files. We'd like you to use them to implement a
-feature for us.
-
-Approach this exercise as if you worked here: make sure your code is clear and
-concise, and use your time wisely.
-
 ## The feature
 
-A feature of OkCupid, and one of the things that differentiates our site, is
-the essay -- a space for people to write about themselves on their profile. But
-it can be hard for users to write so freely without a prompt.
-
-We'd like to make writing an essay easy and fun, and one idea we had is to make
-a [Mad Libs](https://en.wikipedia.org/wiki/Mad_Libs)-style game.
-
-Your job is to make a small app using React/Redux and Scss which asks a user
-some simple questions, and assembles the answers into a passable essay.
+A [Mad Libs](https://en.wikipedia.org/wiki/Mad_Libs)-style game. Make a small app using React/Redux and Scss which asks a user some simple questions, and assembles the answers into a passable essay.
 
 ## How to use
 
