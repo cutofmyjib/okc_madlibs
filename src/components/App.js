@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import AboutMe from './AboutMe';
 import { connect } from "react-redux";
-import { increment } from "../madlibs";
+// import { increment } from "../madlibs";
 
 require("./App.scss");
 
@@ -13,14 +14,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="matchArea">
-        <p>Counter (to make sure redux works): {this.props.counter}</p>
-
-        <p>
-          <button onClick={() => this.props.dispatch(increment())}>
-            Increment
-          </button>
-        </p>
+      <div className="app-container">
+        <AboutMe />
       </div>
     );
   }
