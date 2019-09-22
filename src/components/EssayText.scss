@@ -1,0 +1,14 @@
+.essay-text {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 25px;
+    width: 50%;
+    height: 100%;
+    border-radius: 0 5px 5px 0;
+    background: ghostwhite;
+}
+
+.essay-text p {
+    font-size: 14px;
+}
