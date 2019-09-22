@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import AboutMe from './AboutMe';
+import EssayText from './EssayText';
 import { connect } from "react-redux";
 // import { increment } from "../madlibs";
 
@@ -16,6 +17,7 @@ class App extends Component {
     return (
       <div className="app-container">
         <AboutMe />
+        <EssayText />
       </div>
     );
   }
