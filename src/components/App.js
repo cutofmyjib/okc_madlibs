@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import AboutMe from './AboutMe';
 import EssayText from './EssayText';
 import { connect } from "react-redux";
-// import { increment } from "../madlibs";
+
 
 require("./App.scss");
 
@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <div className="app-container">
         <AboutMe />
-        <EssayText />
+        <EssayText fieldAnswers={this.props.fieldAnswers}/>
       </div>
     );
   }

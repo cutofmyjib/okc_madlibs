@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { FIELD_NAMES, COPY, FIELDS } from "../constants";
+import { FIELD_NAMES, COPY } from "../constants";
+import Input from './Input';
+
 // import PropTypes from "prop-types";
 
 require("./AboutMeForm.scss");
@@ -12,7 +14,12 @@ class AboutMeForm extends Component {
                 <label className="form-label">
                     { COPY[FIELD_NAMES.hometown] }
                 </label>
-                <input className="form-input" type="text" />
+                <Input fieldId={FIELD_NAMES.hometown}/>
+                
+                <label className="form-label">
+                    { COPY[FIELD_NAMES.favoriteFood] }
+                </label>
+                <Input fieldId={FIELD_NAMES.favoriteFood}/>
             </form>
         )
     }

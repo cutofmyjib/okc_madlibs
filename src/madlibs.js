@@ -36,7 +36,13 @@ export const INITIAL_STATE = {
 export function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case SUBMIT_FIELD: {
-      return state;
+      return {
+        ...state, 
+        fieldAnswers: { 
+          ...state.fieldAnswers,
+          [action.payload.fieldName]: action.payload.answer
+        },
+      };
     }
 
     case INCREMENT_COUNTER: {

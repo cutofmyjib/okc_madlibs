@@ -6,7 +6,10 @@ import { reducer } from "./madlibs";
 
 import App from "./components/App";
 
-const store = createStore(reducer);
+const store = createStore(
+  reducer, /* preloadedState, */
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 
 ReactDOM.render(
