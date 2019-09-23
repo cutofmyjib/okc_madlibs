@@ -4,7 +4,7 @@ require("./Button.scss");
 
 function Button(props) {
     return (
-        <button>Edit</button>
+        <button>{props.text}</button>
     );
 }
 

@@ -20,6 +20,16 @@ class AboutMeForm extends Component {
                     { COPY[FIELD_NAMES.favoriteFood] }
                 </label>
                 <Input fieldId={FIELD_NAMES.favoriteFood}/>
+
+                <label className="form-label">
+                    { COPY[FIELD_NAMES.loveToDo] }
+                </label>
+                <Input fieldId={FIELD_NAMES.loveToDo}/>
+
+                <label className="form-label">
+                    { COPY[FIELD_NAMES.messageIf] }
+                </label>
+                <Input fieldId={FIELD_NAMES.messageIf}/>
             </form>
         )
     }

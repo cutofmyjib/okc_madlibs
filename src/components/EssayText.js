@@ -15,6 +15,13 @@ function Text(data) {
         case FIELD_NAMES.favoriteFood: 
             sentence = `${getTextTemplates(FIELD_NAMES.favoriteFood)[0]}`;
             break;
+        case FIELD_NAMES.loveToDo: 
+            sentence = `${getTextTemplates(FIELD_NAMES.loveToDo)[3]}`;
+            break;
+        case FIELD_NAMES.messageIf: 
+            sentence = `${getTextTemplates(FIELD_NAMES.messageIf)[3]}`;
+            break;
+            
         
     }
 
@@ -24,14 +31,16 @@ function Text(data) {
 }
 
 function EssayText(data) {
-    let showButton = false;
+    let showButton = true;
     return (
         <div className="essay-text">
             <div>
-                <h1>Your Essay Text</h1>
+                <h1>Your essay text</h1>
                 <Text fieldname='hometown' answer={data.fieldAnswers.hometown}/>
                 <Text fieldname='favoriteFood' answer={data.fieldAnswers.favoriteFood}/>
-                {showButton ? <Button /> : null}
+                <Text fieldname='loveToDo' answer={data.fieldAnswers.loveToDo}/>
+                <Text fieldname='messageIf' answer={data.fieldAnswers.messageIf}/>
+                <div>{showButton ? <Button text="Edit"/> : null}</div>
             </div>
         </div>
     )
