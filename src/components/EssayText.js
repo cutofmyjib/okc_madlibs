@@ -33,16 +33,28 @@ function Text(data) {
 }
 
 function EssayText(data) {
-    let showButton = true;
+    let showButton = false;
+    const fieldAnswers = data.fieldAnswers;
+    let fieldAnswersArr = [];
+    
+    for (let key in fieldAnswers) {
+        console.log(fieldAnswers[key]);
+        if (fieldAnswers[key].trim() !== '') {
+            fieldAnswersArr.push(fieldAnswers[key].trim());
+        }
+    }
+
+    showButton = fieldAnswersArr.length === 4 ? true : false;
+
     return (
         <div className="essay-text">
             <div>
                 <h1>Your essay text</h1>
                 <div className="content">
-                    <Text fieldname='hometown' answer={data.fieldAnswers.hometown}/>
-                    <Text fieldname='favoriteFood' answer={data.fieldAnswers.favoriteFood}/>
-                    <Text fieldname='loveToDo' answer={data.fieldAnswers.loveToDo}/>
-                    <Text fieldname='messageIf' answer={data.fieldAnswers.messageIf}/>
+                    <Text fieldname='hometown' answer={fieldAnswers.hometown}/>
+                    <Text fieldname='favoriteFood' answer={fieldAnswers.favoriteFood}/>
+                    <Text fieldname='loveToDo' answer={fieldAnswers.loveToDo}/>
+                    <Text fieldname='messageIf' answer={fieldAnswers.messageIf}/>
                 </div>
                 {showButton ? <Button text="Edit"/> : null}
             </div>
