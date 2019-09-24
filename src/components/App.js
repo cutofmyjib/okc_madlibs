@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import AboutMe from './AboutMe';
 import EssayText from './EssayText';
+import EssayTextarea from './EssayTextarea';
 import { connect } from "react-redux";
 
 
@@ -14,11 +15,14 @@ class App extends Component {
   };
 
   render() {
+    let buttonMode = this.props.showTextarea ? 'Submit' : 'Edit';
     return (
-      <div className="app-container">
-        <AboutMe />
-        <EssayText fieldAnswers={this.props.fieldAnswers}/>
-      </div>
+      this.props.showTextarea 
+        ? <EssayTextarea fieldAnswers={this.props.fieldAnswers} buttonMode={buttonMode}/> 
+        : <div className="app-container">
+            <AboutMe />
+            <EssayText fieldAnswers={this.props.fieldAnswers} buttonMode={buttonMode} />
+          </div>
     );
   }
 }

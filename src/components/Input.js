@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
 import { submitField } from "../madlibs";
 import { connect } from "react-redux";
 
@@ -9,11 +8,6 @@ const Input = ({handleChange, fieldId}) => (
         type="text"
         onChange={(event) => handleChange(event.target.value, fieldId)} />
 );
-
-Input.propTypes = {
-    handleChange: PropTypes.func,
-    value: PropTypes.string,
-};
   
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {

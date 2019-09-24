@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Button from './Button';
 import { FIELD_NAMES } from "../constants";
 import { getTextTemplates } from "../helpers";
-// import PropTypes from "prop-types";
 
 require("./EssayText.scss");
 
@@ -32,9 +31,9 @@ function Text(data) {
     );
 }
 
-function EssayText(data) {
+function EssayText({fieldAnswers, buttonMode}) {
+    console.log('8888888888 ', fieldAnswers)
     let showButton = false;
-    const fieldAnswers = data.fieldAnswers;
     let fieldAnswersArr = [];
     
     for (let key in fieldAnswers) {
@@ -56,7 +55,10 @@ function EssayText(data) {
                     <Text fieldname='loveToDo' answer={fieldAnswers.loveToDo}/>
                     <Text fieldname='messageIf' answer={fieldAnswers.messageIf}/>
                 </div>
-                {showButton ? <Button text="Edit"/> : null}
+                {showButton 
+                    ? buttonMode === "Edit"
+                        ? <Button mode="Edit"/> : <Button mode="Submit"/>
+                    : null}
             </div>
         </div>
     )
