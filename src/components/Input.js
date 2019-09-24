@@ -4,7 +4,6 @@ import { submitField } from "../madlibs";
 import { connect } from "react-redux";
 
 const Input = ({handleChange, fieldId}) => (
-
     <input 
         className="form-input" 
         type="text"
@@ -15,10 +14,6 @@ Input.propTypes = {
     handleChange: PropTypes.func,
     value: PropTypes.string,
 };
-
-function mapStateToProps(state) {
-    return state;
-}
   
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
