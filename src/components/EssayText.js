@@ -20,8 +20,6 @@ function Text(data) {
         case FIELD_NAMES.messageIf: 
             string = `${getTextTemplates(FIELD_NAMES.messageIf)[3]}`;
             break;
-            
-        
     }
 
     const [before, after] = string.split("$answer");
@@ -32,7 +30,6 @@ function Text(data) {
 }
 
 function EssayText({fieldAnswers, buttonMode}) {
-    console.log('8888888888 ', fieldAnswers)
     let showButton = false;
     let fieldAnswersArr = [];
     

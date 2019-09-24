@@ -8,6 +8,7 @@ import {
 
 export const SUBMIT_FIELD = "MADLIBS.SUBMIT_FIELD";
 export const EDIT_ESSAY = "MADLIBS.EDIT_ESSAY";
+export const SUBMIT_ESSAY = "MADLIBS.SUBMIT_ESSAY";
 export const INCREMENT_COUNTER = "MADLIBS.INCREMENT_COUNTER";
 
 
@@ -52,9 +53,15 @@ export function reducer(state = INITIAL_STATE, action) {
         ...state,
         showTextarea: action.payload.showTextarea
       }
-
     }
 
+    case SUBMIT_ESSAY: {
+      return {
+        ...state,
+        fieldAnswers: {},
+        showTextarea: action.payload.showTextarea
+      }
+    }
     case INCREMENT_COUNTER: {
       return {
         ...state,
@@ -76,6 +83,10 @@ export function submitField({ id, answer }) {
 }
 
 export function editEssay({ isEditMode }) {
+  return { type: EDIT_ESSAY, payload: { showTextarea: isEditMode } };
+}
+
+export function submitEssay({ isEditMode }) {
   return { type: EDIT_ESSAY, payload: { showTextarea: isEditMode } };
 }
 
