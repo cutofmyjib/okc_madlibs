@@ -28,8 +28,7 @@ export const INITIAL_STATE = {
   fieldAnswers: {},
   essayText: "",
   showTextarea: false,
-
-  counter: 1,
+  showButton: false,
 };
 
 
@@ -39,12 +38,17 @@ export const INITIAL_STATE = {
 export function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case SUBMIT_FIELD: {
+      const fieldAnswers = { 
+        ...state.fieldAnswers,
+        [action.payload.fieldName]: action.payload.answer
+      };
+      const fieldAnswersArr = Object.keys(fieldAnswers);
+      const showButton = fieldAnswersArr.length === 4 && fieldAnswersArr.every(key => fieldAnswers[key].trim());
+
       return {
         ...state, 
-        fieldAnswers: { 
-          ...state.fieldAnswers,
-          [action.payload.fieldName]: action.payload.answer
-        },
+        fieldAnswers,
+        showButton
       };
     }
 
@@ -59,14 +63,9 @@ export function reducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         fieldAnswers: {},
-        showTextarea: action.payload.showTextarea
+        showTextarea: action.payload.showTextarea,
+        showButton: false
       }
-    }
-    case INCREMENT_COUNTER: {
-      return {
-        ...state,
-        counter: state.counter + 1,
-      };
     }
 
     default:
@@ -90,6 +89,3 @@ export function startOver({ isEditMode }) {
   return { type: START_OVER, payload: { showTextarea: isEditMode } };
 }
 
-export function increment() {
-  return { type: INCREMENT_COUNTER };
-}

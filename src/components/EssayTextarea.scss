@@ -1,6 +1,7 @@
 .essay-textarea {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     box-sizing: border-box;
     padding: 25px;
     width: 100%;
@@ -9,8 +10,15 @@
     background: whitesmoke;
 }
 
-.essay-textarea .essay-text {
-    height: 50%;
+.essay-textarea div {
+    width: 50%;
+}
+
+.essay-textarea div .content {
+    box-sizing: border-box;
     border-radius: 5px;
+    width: 100%;
+    padding: 10px 10px 50px 10px;
+    margin-bottom: 35px;
     background: white;
 }

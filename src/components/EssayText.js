@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Button from './Button';
 import { FIELD_NAMES } from "../constants";
 import { getTextTemplates } from "../helpers";
 
@@ -7,17 +6,9 @@ require("./EssayText.scss");
 
 function Text(data) {
     let string;
-    const getRandom = length => {
-        return Math.floor(Math.random() * length);
-    };
-
     switch (data.fieldname) {
         case FIELD_NAMES.hometown: 
-            console.log("8888888")
-            const selectionCount = getTextTemplates(FIELD_NAMES.hometown).length;
-            const randomFieldNum = getRandom(selectionCount);
-            string = `${getTextTemplates(FIELD_NAMES.hometown)[randomFieldNum]}`;
-            console.log(string)
+            string = `${getTextTemplates(FIELD_NAMES.hometown)[6]}`;
             break;
         case FIELD_NAMES.favoriteFood: 
             string = `${getTextTemplates(FIELD_NAMES.favoriteFood)[0]}`;
@@ -37,24 +28,14 @@ function Text(data) {
     );
 }
 
-function EssayText({fieldAnswers, buttonMode}) {
-    const fieldAnswersArr = Object.keys(fieldAnswers);
-    const showButton = fieldAnswersArr.length === 4 && fieldAnswersArr.every(key => fieldAnswers[key].trim());
-
+function EssayText({fieldAnswers}) {
+    
     return (
-        <div className="essay-text">
-            <div>
-                <h1>Your essay text</h1>
-                <div className="content">
-                    <Text fieldname='hometown' answer={fieldAnswers.hometown}/>
-                    <Text fieldname='favoriteFood' answer={fieldAnswers.favoriteFood}/>
-                    <Text fieldname='loveToDo' answer={fieldAnswers.loveToDo}/>
-                    <Text fieldname='messageIf' answer={fieldAnswers.messageIf}/>
-                </div>
-                { showButton && (buttonMode === 'Edit'
-                    ? <Button mode="Edit"/>
-                    : <Button mode="Start Over"/>) }
-            </div>
+        <div className="content">
+            <Text fieldname='hometown' answer={fieldAnswers.hometown}/>
+            <Text fieldname='favoriteFood' answer={fieldAnswers.favoriteFood}/>
+            <Text fieldname='loveToDo' answer={fieldAnswers.loveToDo}/>
+            <Text fieldname='messageIf' answer={fieldAnswers.messageIf}/>
         </div>
     )
 }
