@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import AboutMe from './AboutMe';
 import EssayText from './EssayText';
 import EssayTextarea from './EssayTextarea';
+import Button from './Button';
 import { connect } from "react-redux";
 
 
@@ -15,13 +16,25 @@ class App extends Component {
   };
 
   render() {
-    let buttonMode = this.props.showTextarea ? 'Submit' : 'Edit';
+    let buttonMode = this.props.showTextarea ? 'Start Over' : 'Edit';
     return (
       this.props.showTextarea 
-        ? <EssayTextarea fieldAnswers={this.props.fieldAnswers} buttonMode={buttonMode}/> 
+        ? <div className="app-container">
+            <div className="essay-textarea">
+              <div>
+                <h1>Your essay text</h1>
+                <EssayTextarea fieldAnswers={this.props.fieldAnswers} />
+                <Button mode={buttonMode} />
+              </div>
+            </div>
+          </div>
         : <div className="app-container">
             <AboutMe />
-            <EssayText fieldAnswers={this.props.fieldAnswers} buttonMode={buttonMode} />
+            <div className="essay-text">
+              <h1>Your essay text</h1>
+              <EssayText fieldAnswers={this.props.fieldAnswers} />
+              { this.props.showButton ? <Button mode={buttonMode}/> : null }
+            </div>
           </div>
     );
   }
