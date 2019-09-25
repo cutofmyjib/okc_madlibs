@@ -7,9 +7,17 @@ require("./EssayText.scss");
 
 function Text(data) {
     let string;
+    const getRandom = length => {
+        return Math.floor(Math.random() * length);
+    };
+
     switch (data.fieldname) {
         case FIELD_NAMES.hometown: 
-            string = `${getTextTemplates(FIELD_NAMES.hometown)[6]}`;
+            console.log("8888888")
+            const selectionCount = getTextTemplates(FIELD_NAMES.hometown).length;
+            const randomFieldNum = getRandom(selectionCount);
+            string = `${getTextTemplates(FIELD_NAMES.hometown)[randomFieldNum]}`;
+            console.log(string)
             break;
         case FIELD_NAMES.favoriteFood: 
             string = `${getTextTemplates(FIELD_NAMES.favoriteFood)[0]}`;
@@ -30,17 +38,8 @@ function Text(data) {
 }
 
 function EssayText({fieldAnswers, buttonMode}) {
-    let showButton = false;
-    let fieldAnswersArr = [];
-    
-    for (let key in fieldAnswers) {
-        console.log(fieldAnswers[key]);
-        if (fieldAnswers[key].trim() !== '') {
-            fieldAnswersArr.push(fieldAnswers[key].trim());
-        }
-    }
-
-    showButton = fieldAnswersArr.length === 4 ? true : false;
+    const fieldAnswersArr = Object.keys(fieldAnswers);
+    const showButton = fieldAnswersArr.length === 4 && fieldAnswersArr.every(key => fieldAnswers[key].trim());
 
     return (
         <div className="essay-text">
@@ -52,10 +51,9 @@ function EssayText({fieldAnswers, buttonMode}) {
                     <Text fieldname='loveToDo' answer={fieldAnswers.loveToDo}/>
                     <Text fieldname='messageIf' answer={fieldAnswers.messageIf}/>
                 </div>
-                {showButton 
-                    ? buttonMode === "Edit"
-                        ? <Button mode="Edit"/> : <Button mode="Submit"/>
-                    : null}
+                { showButton && (buttonMode === 'Edit'
+                    ? <Button mode="Edit"/>
+                    : <Button mode="Start Over"/>) }
             </div>
         </div>
     )

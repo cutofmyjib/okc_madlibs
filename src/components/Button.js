@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { editEssay, submitEssay } from "../madlibs";
+import { editEssay, startOver } from "../madlibs";
 import { connect } from "react-redux";
 
 require("./Button.scss");
@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         handleClick: () => { 
             ownProps.mode === 'Edit' 
                 ? dispatch(editEssay({isEditMode: true}))
-                : dispatch(submitEssay({isEditMode: false}))
+                : dispatch(startOver({isEditMode: false}))
         }
   }
 }
